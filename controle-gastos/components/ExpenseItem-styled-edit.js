@@ -29,5 +29,20 @@ export default HomeScreen(){
             return;
             
         }
+
+        // Validação para verificar valor númerico no campo valor
+        if(isNaN(parseFloat(valor))){
+            Alert.alert('Erro', 'Digite um valor númerico');
+            return;
+        }
+
+        if(editandoId){
+            const gastosAtualizados = gastos.map(item =>
+            // Atualiza o gasto existente com base no ID
+            item.id === editandoId 
+            ? { ...item, descricao, valor: parseFloat(valor).toFixed(2)} : item);  // Atualiza o item com nova descrição e valor formatado
+            setGastos(gastosAtualizados);
+            setEditandoId(null); // Limpa o estado de edição
+        }
     }
 }
