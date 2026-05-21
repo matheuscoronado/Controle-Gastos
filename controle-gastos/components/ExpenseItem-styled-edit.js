@@ -12,7 +12,7 @@ import{
     Alert //Exibição de alertas
 } from 'react-native';
 
-export default HomeScreen(){
+export default function HomeScreen() {
     //Estado para os campos de formulario
     const [descricao, setDescricao] = useState("");     //Descrição do gasto
     const [valor, setValor] = useState("");             //Valor do Gasto
@@ -58,6 +58,13 @@ export default HomeScreen(){
 
     // Função para remover um gasto da lista
     const removerGasto = (id) => {
-        setGastos(gastos.filter(item => item.id !== id));
+        setGastos(gastos.filter(item => item.id !== id)); // Remove o gasto com o ID correspondente
+
+        // Verifica se o item a ser removido está sendo editado. Se estiver, cancelar a operação
+        if(editandoId === id){
+            setEditandoId(null); // Sai do modo de edição
+            setDescricao(""); // Limpa o campo de descrição
+            setValor(""); // Limpa o campo de valor
+        }
     };
 }
