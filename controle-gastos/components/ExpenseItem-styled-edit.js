@@ -51,5 +51,8 @@ export default HomeScreen(){
             };
             setGastos([...gastos, novoGasto]); // Adiciona o novo gasto à lista
         }
+        // Limpa os campos após adicionar ou atualizar
+        setDescricao("");
+        setValor("");
     }
 }
