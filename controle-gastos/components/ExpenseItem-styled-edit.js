@@ -84,12 +84,21 @@ export default function HomeScreen() {
             <Text style={styles.title}>Controle de Gastos</Text>
 
 
-        {/*    Campo para entreda de descrição */}
+        {/* Campo para entrada de descrição */}
             <TextInput
                 style={styles.input}
                 placeholder="Descrição do gasto"
                 value={descricao}
                 onChangeText={setDescricao}
+            />
+
+        {/* Campo para entrada de valor */}
+            <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                placeholder="Valor do gasto"
+                value={valor}
+                onChangeText={setValor}
             />
 
         </View>
