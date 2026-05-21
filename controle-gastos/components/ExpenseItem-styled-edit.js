@@ -43,6 +43,13 @@ export default HomeScreen(){
             ? { ...item, descricao, valor: parseFloat(valor).toFixed(2)} : item);  // Atualiza o item com nova descrição e valor formatado
             setGastos(gastosAtualizados);
             setEditandoId(null); // Limpa o estado de edição
+        } else {
+            const novoGasto = {
+                id: Date.now().toString(), // Gera um ID único
+                descricao,                 // Usa a descrição do estado
+                valor: parseFloat(valor).toFixed(2) // Formata o valor
+            };
+            setGastos([...gastos, novoGasto]); // Adiciona o novo gasto à lista
         }
     }
 }
