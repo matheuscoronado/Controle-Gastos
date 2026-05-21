@@ -71,7 +71,10 @@ export default function HomeScreen() {
     // Função para preencher o formulário com os dados do item a ser editado
     const editarGasto = (item) => {
         setDescricao(item.descricao); // Preenche descrição
-        setValor(item.valor); // Preenche valor
-        setEditandoId(item.id); // Armazena o ID
+        setValor(item.valor);         // Preenche valor
+        setEditandoId(item.id);       // Armazena o ID
     };
+
+    // Cálculo do total de gastos
+    const totalGastos = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0).toFixed(2);  // Soma os valores dos gastos e formata para 2 casas decimais
 }
