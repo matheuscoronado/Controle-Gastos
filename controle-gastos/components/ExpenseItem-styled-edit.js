@@ -77,4 +77,22 @@ export default function HomeScreen() {
 
     // Cálculo do total de gastos
     const totalGastos = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0).toFixed(2);  // Soma os valores dos gastos e formata para 2 casas decimais
+
+    // Retorna os elementos visuais da interface
+    return(
+        <View style={styles.container}>
+            <Text style={styles.title}>Controle de Gastos</Text>
+
+        </View>
+    );
 }
+    
+// Estilos para os componentes
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    title: {
+        fontSize: 24
+    }
+});
