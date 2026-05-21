@@ -67,4 +67,11 @@ export default function HomeScreen() {
             setValor(""); // Limpa o campo de valor
         }
     };
+
+    // Função para preencher o formulário com os dados do item a ser editado
+    const editarGasto = (item) => {
+        setDescricao(item.descricao); // Preenche descrição
+        setValor(item.valor); // Preenche valor
+        setEditandoId(item.id); // Armazena o ID
+    };
 }
