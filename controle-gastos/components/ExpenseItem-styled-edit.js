@@ -54,5 +54,10 @@ export default HomeScreen(){
         // Limpa os campos após adicionar ou atualizar
         setDescricao("");
         setValor("");
-    }
+    };
+
+    // Função para remover um gasto da lista
+    const removerGasto = (id) => {
+        setGastos(gastos.filter(item => item.id !== id));
+    };
 }
