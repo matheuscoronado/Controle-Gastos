@@ -129,10 +129,15 @@ export default function HomeScreen() {
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => removerGasto(item.id)} style={styles.deleteButton}>
                                 <Text style={styles.actionText}>
-                                    Remover
+                                    Excluir
                                 </Text>
                             </TouchableOpacity>
                         </View>
+
+                        {/* Exibe o total de gastos */}
+                        <Text style={styles.total}>
+                            Total: R$ {totalGastos}
+                        </Text>
                     </View>
                 )}
             />
