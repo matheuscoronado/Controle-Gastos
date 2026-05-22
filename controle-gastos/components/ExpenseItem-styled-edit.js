@@ -136,7 +136,7 @@ export default function HomeScreen() {
                     </View>
                 )}
             />
-            
+
             {/* Exibe o total de gastos */}
             <Text style={styles.total}>
                 Total: R$ {totalGastos}
@@ -148,30 +148,109 @@ export default function HomeScreen() {
 // Estilos para os componentes
 const styles = StyleSheet.create({
     container: {
-
+        flex: 1,
+        backgroundColor: '#f5f7fa',
+        paddingHorizontal: 20,
+        paddingTop: 50,
+        paddingBottom: 20,
     },
     title: {
-
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#1a1a1a',
+        textAlign: 'center',
+        marginBottom: 25,
     },
     input: {
-
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e2e8f0',
+        borderRadius: 8,
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+        fontSize: 16,
+        color: '#334155',
+        marginBottom: 12,
+        // Sombra leve para o input (iOS)
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        // Sombra para Android
+        elevation: 1,
     },
     button: {
-
+        backgroundColor: '#0284c7',
+        borderRadius: 8,
+        paddingVertical: 14,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 6,
+        marginBottom: 20,
+        elevation: 2,
+        shadowColor: '#0284c7',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
     },
     buttonText: {
-
+        color: '#ffffff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    itemContainer: {
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        padding: 16,
+        marginBottom: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#f1f5f9',
+        elevation: 1,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+    },
+    item: {
+        fontSize: 16,
+        color: '#334155',
+        fontWeight: '500',
+        flex: 1,
+        paddingRight: 10,
     },
     actions: {
-
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     editButton: {
-
+        backgroundColor: '#eab308',
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 6,
+        marginRight: 8,
     },
     deleteButton: {
-
+        backgroundColor: '#ef4444',
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 6,
     },
     actionText: {
-
+        color: '#ffffff',
+        fontSize: 13,
+        fontWeight: 'bold',
+    },
+    total: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#15803d',
+        textAlign: 'right',
+        marginTop: 15,
+        paddingTop: 15,
+        borderTopWidth: 2,
+        borderTopColor: '#e2e8f0',
     }
-})
+});
