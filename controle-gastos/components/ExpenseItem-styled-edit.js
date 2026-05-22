@@ -1,8 +1,8 @@
 // Importa React e o hook useState para controle de estado
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 // Importa os componentes nativos para construição de interface
-import{
+import {
     View, // Container de Layout
     TextInput, // Campo de entrada de texto
     Text, // Exibição de Texto
@@ -21,26 +21,26 @@ export default function HomeScreen() {
     (null); //Id do Item Sendo editado
 
     // Função para adicionar um novo gasto ou atualizar um existente
-    const adicionarOuAtualizarGasto = () =>{
+    const adicionarOuAtualizarGasto = () => {
 
         // Validação campos não podem estar vazios
-        if(!descricao || !valor){
+        if (!descricao || !valor) {
             Alert.alert('Erro', 'Preencha todos os campos!');
             return;
-            
+
         }
 
         // Validação para verificar valor númerico no campo valor
-        if(isNaN(parseFloat(valor))){
+        if (isNaN(parseFloat(valor))) {
             Alert.alert('Erro', 'Digite um valor númerico');
             return;
         }
 
-        if(editandoId){
+        if (editandoId) {
             const gastosAtualizados = gastos.map(item =>
-            // Atualiza o gasto existente com base no ID
-            item.id === editandoId 
-            ? { ...item, descricao, valor: parseFloat(valor).toFixed(2)} : item);  // Atualiza o item com nova descrição e valor formatado
+                // Atualiza o gasto existente com base no ID
+                item.id === editandoId
+                    ? { ...item, descricao, valor: parseFloat(valor).toFixed(2) } : item);  // Atualiza o item com nova descrição e valor formatado
             setGastos(gastosAtualizados);
             setEditandoId(null); // Limpa o estado de edição
         } else {
@@ -61,7 +61,7 @@ export default function HomeScreen() {
         setGastos(gastos.filter(item => item.id !== id)); // Remove o gasto com o ID correspondente
 
         // Verifica se o item a ser removido está sendo editado. Se estiver, cancelar a operação
-        if(editandoId === id){
+        if (editandoId === id) {
             setEditandoId(null); // Sai do modo de edição
             setDescricao(""); // Limpa o campo de descrição
             setValor(""); // Limpa o campo de valor
@@ -79,12 +79,12 @@ export default function HomeScreen() {
     const totalGastos = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0).toFixed(2);  // Soma os valores dos gastos e formata para 2 casas decimais
 
     // Retorna os elementos visuais da interface
-    return(
+    return (
         <View style={styles.container}>
             <Text style={styles.title}>Controle de Gastos</Text>
 
 
-        {/* Campo para entrada de descrição */}
+            {/* Campo para entrada de descrição */}
             <TextInput
                 style={styles.input}
                 placeholder="Descrição do gasto"
@@ -92,7 +92,7 @@ export default function HomeScreen() {
                 onChangeText={setDescricao}
             />
 
-        {/* Campo para entrada de valor */}
+            {/* Campo para entrada de valor */}
             <TextInput
                 style={styles.input}
                 keyboardType="numeric"
@@ -108,66 +108,66 @@ export default function HomeScreen() {
                 </Text>
             </TouchableOpacity>
 
-        {/* Lista de gastos exibidos na FlatList */}
-        <FlatList
-            data={gastos}                                                   // Fonte de dados
-            keyExtractor={(item) => item.id}                                // Extrai a chave única de cada item    
-            renderItem={({ item }) => (
-                <View style={styles.itemContainer}>
+            {/* Lista de gastos exibidos na FlatList */}
+            <FlatList
+                data={gastos}                                                   // Fonte de dados
+                keyExtractor={(item) => item.id}                                // Extrai a chave única de cada item    
+                renderItem={({ item }) => (
+                    <View style={styles.itemContainer}>
 
-                    {/* Exibe a descrição e o valor*/}
-                    <Text style={styles.item}>
-                        {item.descricao} - R$ {item.valor}
-                    </Text>
+                        {/* Exibe a descrição e o valor*/}
+                        <Text style={styles.item}>
+                            {item.descricao} - R$ {item.valor}
+                        </Text>
 
-                    {/* Botões para editar e remover o gasto */}
-                    <View style={styles.actions}>
-                        <TouchableOpacity onPress={() => editarGasto(item)} style={styles.editButton}>
-                            <Text style={styles.actionText}>
-                                Editar
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => removerGasto(item.id)} style={styles.deleteButton}>
-                            <Text style={styles.actionText}>
-                                Remover
-                            </Text>
-                        </TouchableOpacity>
+                        {/* Botões para editar e remover o gasto */}
+                        <View style={styles.actions}>
+                            <TouchableOpacity onPress={() => editarGasto(item)} style={styles.editButton}>
+                                <Text style={styles.actionText}>
+                                    Editar
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => removerGasto(item.id)} style={styles.deleteButton}>
+                                <Text style={styles.actionText}>
+                                    Remover
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
-            )}
-        />
+                )}
+            />
 
         </View>
     );
 }
-    
+
 // Estilos para os componentes
 const styles = StyleSheet.create({
     container: {
-        
+
     },
     title: {
-        
+
     },
     input: {
-        
+
     },
     button: {
-        
+
     },
     buttonText: {
-        
+
     },
     actions: {
-        
+
     },
     editButton: {
-        
+
     },
     deleteButton: {
-        
+
     },
     actionText: {
-        
+
     }
 })
