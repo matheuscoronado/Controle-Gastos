@@ -14,11 +14,10 @@ import {
 
 export default function HomeScreen() {
     //Estado para os campos de formulario
-    const [descricao, setDescricao] = useState("");     //Descrição do gasto
+    const [descricao, setDescricao] = useState([]);     //Descrição do gasto
     const [valor, setValor] = useState("");             //Valor do Gasto
-    const [gastos, setGastos] = useState("");           //Lista de Gasto
-    const [editandoId, setEditandoId] = useState("");   //Id do item sendo editado
-    (null); //Id do Item Sendo editado
+    const [gastos, setGastos] = useState([]);           //Lista de Gasto
+    const [editandoId, setEditandoId] = useState(null);   //Id do item sendo editado
 
     // Função para adicionar um novo gasto ou atualizar um existente
     const adicionarOuAtualizarGasto = () => {
