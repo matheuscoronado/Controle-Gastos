@@ -108,6 +108,35 @@ export default function HomeScreen() {
                 </Text>
             </TouchableOpacity>
 
+        {/* Lista de gastos exibidos na FlatList */}
+        <FlatList
+            data={gastos}                                                   // Fonte de dados
+            keyExtractor={(item) => item.id}                                // Extrai a chave única de cada item    
+            renderItem={({ item }) => (
+                <View style={styles.itemContainer}>
+
+                    {/* Exibe a descrição e o valor*/}
+                    <Text style={styles.item}>
+                        {item.descricao} - R$ {item.valor}
+                    </Text>
+
+                    {/* Botões para editar e remover o gasto */}
+                    <View style={styles.actions}>
+                        <TouchableOpacity onPress={() => editarGasto(item)} style={styles.editButton}>
+                            <Text style={styles.actionText}>
+                                Editar
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => removerGasto(item.id)} style={styles.deleteButton}>
+                            <Text style={styles.actionText}>
+                                Remover
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )}
+        />
+
         </View>
     );
 }
@@ -122,5 +151,14 @@ const styles = StyleSheet.create({
     },
     input: {
         
-    }
-});
+    },
+    button: {
+        
+    },
+    buttonText: {
+        
+    },
+    actions: {
+        
+}
+})
