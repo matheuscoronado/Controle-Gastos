@@ -160,5 +160,14 @@ const styles = StyleSheet.create({
     },
     actions: {
         
-}
+    },
+    editButton: {
+        
+    },
+    deleteButton: {
+        
+    },
+    actionText: {
+        
+    }
 })
