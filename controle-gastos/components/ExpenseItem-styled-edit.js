@@ -101,6 +101,13 @@ export default function HomeScreen() {
                 onChangeText={setValor}
             />
 
+            {/* Botão para adicionar o valor a lista */}
+            <TouchableOpacity style={styles.button} onPress={adicionarOuAtualizarGasto}>
+                <Text style={styles.buttonText}>
+                    {editandoId ? "Atualizar Gasto" : "Adicionar Gasto"}
+                </Text>
+            </TouchableOpacity>
+
         </View>
     );
 }
